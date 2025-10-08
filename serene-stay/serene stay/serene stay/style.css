@@ -1,0 +1,181 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  
+  color: #333;
+  background-color: #f9f8f5;
+  line-height: 1.6;
+}
+
+
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+/* 🌿 Navbar Layout */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 4rem;
+  background: #f8f6f1;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 100;
+}
+
+.logo {
+  font-family: 'Playfair Display';
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.logo span {
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+/* 🔗 Nav Links */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: #3b4d2a;
+  text-decoration: none;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #2b3c1e;
+  text-decoration: underline;
+}
+
+/* 🔲 Hide checkbox */
+#menu-toggle {
+  display: none;
+}
+
+
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #3b4d2a;
+  transition: transform 0.3s ease;
+}
+
+/* ✖️ Change icon on toggle */
+#menu-toggle:checked + .hamburger::before {
+  content: "✖";
+  font-size: 1.5rem;
+}
+#menu-toggle:checked + .hamburger {
+  transform: rotate(90deg);
+}
+
+/* 📱 Responsive Styling */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    background: #f8f6f1;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 0 2rem;
+    overflow: hidden; /* hide content while collapsing */
+    
+    /* 👇 Animation settings */
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+  }
+
+  /* ✅ When checkbox is checked → expand menu */
+  #menu-toggle:checked + .hamburger + .nav-links {
+    max-height: 300px; /* enough space for links */
+    opacity: 1;
+    padding: 1rem 2rem;
+  }
+
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+}
+
+
+.hero-image {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("images/hero.jpg");
+
+  height: 60vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.service {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #f9f8f5;
+}
+
+
+.service h2 {
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.service-cards {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 1rem;
+  max-width: 300px;
+  text-align: left;
+  flex: 1 1 280px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  margin-bottom: 0.5rem;
+}
+
